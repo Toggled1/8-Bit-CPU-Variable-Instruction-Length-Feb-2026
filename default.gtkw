@@ -1,0 +1,65 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Tue Feb 17 07:28:16 2026
+[*]
+[dumpfile] "/home/gawah/cpu8/waves.ghw"
+[dumpfile_mtime] "Tue Feb 17 07:00:49 2026"
+[dumpfile_size] 26629
+[savefile] "/home/gawah/cpu8/default.gtkw"
+[timestart] 208200000
+[size] 1920 1081
+[pos] -27 -24
+*-24.462475 202900000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.cpu_tb.
+[treeopen] top.cpu_tb.dut.
+[treeopen] top.cpu_tb.dut.dp.
+[treeopen] top.cpu_tb.dut.dp.gp_regs.
+[treeopen] top.cpu_tb.dut.dp.gp_regs.reg0.
+[treeopen] top.cpu_tb.dut.dp.gp_regs.reg1.
+[treeopen] top.cpu_tb.dut.dp.gp_regs.reg7.
+[sst_width] 297
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 325
+@22
+#{top.cpu_tb.dut.op_b_ff[7:0]} top.cpu_tb.dut.op_b_ff[7] top.cpu_tb.dut.op_b_ff[6] top.cpu_tb.dut.op_b_ff[5] top.cpu_tb.dut.op_b_ff[4] top.cpu_tb.dut.op_b_ff[3] top.cpu_tb.dut.op_b_ff[2] top.cpu_tb.dut.op_b_ff[1] top.cpu_tb.dut.op_b_ff[0]
+#{top.cpu_tb.dut.op_a_ff[7:0]} top.cpu_tb.dut.op_a_ff[7] top.cpu_tb.dut.op_a_ff[6] top.cpu_tb.dut.op_a_ff[5] top.cpu_tb.dut.op_a_ff[4] top.cpu_tb.dut.op_a_ff[3] top.cpu_tb.dut.op_a_ff[2] top.cpu_tb.dut.op_a_ff[1] top.cpu_tb.dut.op_a_ff[0]
+#{top.cpu_tb.dut.dp.gp_regs.reg7.q[7:0]} top.cpu_tb.dut.dp.gp_regs.reg7.q[7] top.cpu_tb.dut.dp.gp_regs.reg7.q[6] top.cpu_tb.dut.dp.gp_regs.reg7.q[5] top.cpu_tb.dut.dp.gp_regs.reg7.q[4] top.cpu_tb.dut.dp.gp_regs.reg7.q[3] top.cpu_tb.dut.dp.gp_regs.reg7.q[2] top.cpu_tb.dut.dp.gp_regs.reg7.q[1] top.cpu_tb.dut.dp.gp_regs.reg7.q[0]
+#{top.cpu_tb.dut.dp.gp_regs.reg1.q[7:0]} top.cpu_tb.dut.dp.gp_regs.reg1.q[7] top.cpu_tb.dut.dp.gp_regs.reg1.q[6] top.cpu_tb.dut.dp.gp_regs.reg1.q[5] top.cpu_tb.dut.dp.gp_regs.reg1.q[4] top.cpu_tb.dut.dp.gp_regs.reg1.q[3] top.cpu_tb.dut.dp.gp_regs.reg1.q[2] top.cpu_tb.dut.dp.gp_regs.reg1.q[1] top.cpu_tb.dut.dp.gp_regs.reg1.q[0]
+@28
+#{top.cpu_tb.dut.dp.reg_write_sel[2:0]} top.cpu_tb.dut.dp.reg_write_sel[2] top.cpu_tb.dut.dp.reg_write_sel[1] top.cpu_tb.dut.dp.reg_write_sel[0]
+#{top.cpu_tb.dut.dp.reg_read_sel[2:0]} top.cpu_tb.dut.dp.reg_read_sel[2] top.cpu_tb.dut.dp.reg_read_sel[1] top.cpu_tb.dut.dp.reg_read_sel[0]
+@22
+#{top.cpu_tb.dut.dp.mem_din[7:0]} top.cpu_tb.dut.dp.mem_din[7] top.cpu_tb.dut.dp.mem_din[6] top.cpu_tb.dut.dp.mem_din[5] top.cpu_tb.dut.dp.mem_din[4] top.cpu_tb.dut.dp.mem_din[3] top.cpu_tb.dut.dp.mem_din[2] top.cpu_tb.dut.dp.mem_din[1] top.cpu_tb.dut.dp.mem_din[0]
+#{top.cpu_tb.dut.cpu_ir_value[7:0]} top.cpu_tb.dut.cpu_ir_value[7] top.cpu_tb.dut.cpu_ir_value[6] top.cpu_tb.dut.cpu_ir_value[5] top.cpu_tb.dut.cpu_ir_value[4] top.cpu_tb.dut.cpu_ir_value[3] top.cpu_tb.dut.cpu_ir_value[2] top.cpu_tb.dut.cpu_ir_value[1] top.cpu_tb.dut.cpu_ir_value[0]
+#{top.cpu_tb.dut.cpu_ir1_value[7:0]} top.cpu_tb.dut.cpu_ir1_value[7] top.cpu_tb.dut.cpu_ir1_value[6] top.cpu_tb.dut.cpu_ir1_value[5] top.cpu_tb.dut.cpu_ir1_value[4] top.cpu_tb.dut.cpu_ir1_value[3] top.cpu_tb.dut.cpu_ir1_value[2] top.cpu_tb.dut.cpu_ir1_value[1] top.cpu_tb.dut.cpu_ir1_value[0]
+#{top.cpu_tb.dut.op_a_ff[7:0]} top.cpu_tb.dut.op_a_ff[7] top.cpu_tb.dut.op_a_ff[6] top.cpu_tb.dut.op_a_ff[5] top.cpu_tb.dut.op_a_ff[4] top.cpu_tb.dut.op_a_ff[3] top.cpu_tb.dut.op_a_ff[2] top.cpu_tb.dut.op_a_ff[1] top.cpu_tb.dut.op_a_ff[0]
+#{top.cpu_tb.dut.op_b_ff[7:0]} top.cpu_tb.dut.op_b_ff[7] top.cpu_tb.dut.op_b_ff[6] top.cpu_tb.dut.op_b_ff[5] top.cpu_tb.dut.op_b_ff[4] top.cpu_tb.dut.op_b_ff[3] top.cpu_tb.dut.op_b_ff[2] top.cpu_tb.dut.op_b_ff[1] top.cpu_tb.dut.op_b_ff[0]
+@c00022
+#{top.cpu_tb.dut.dp.gp_regs.reg_en[7:0]} top.cpu_tb.dut.dp.gp_regs.reg_en[7] top.cpu_tb.dut.dp.gp_regs.reg_en[6] top.cpu_tb.dut.dp.gp_regs.reg_en[5] top.cpu_tb.dut.dp.gp_regs.reg_en[4] top.cpu_tb.dut.dp.gp_regs.reg_en[3] top.cpu_tb.dut.dp.gp_regs.reg_en[2] top.cpu_tb.dut.dp.gp_regs.reg_en[1] top.cpu_tb.dut.dp.gp_regs.reg_en[0]
+@28
+top.cpu_tb.dut.dp.gp_regs.reg_en[7]
+top.cpu_tb.dut.dp.gp_regs.reg_en[6]
+top.cpu_tb.dut.dp.gp_regs.reg_en[5]
+top.cpu_tb.dut.dp.gp_regs.reg_en[4]
+top.cpu_tb.dut.dp.gp_regs.reg_en[3]
+top.cpu_tb.dut.dp.gp_regs.reg_en[2]
+top.cpu_tb.dut.dp.gp_regs.reg_en[1]
+top.cpu_tb.dut.dp.gp_regs.reg_en[0]
+@1401200
+-group_end
+@22
+#{top.cpu_tb.dut.dp_data_recieve[7:0]} top.cpu_tb.dut.dp_data_recieve[7] top.cpu_tb.dut.dp_data_recieve[6] top.cpu_tb.dut.dp_data_recieve[5] top.cpu_tb.dut.dp_data_recieve[4] top.cpu_tb.dut.dp_data_recieve[3] top.cpu_tb.dut.dp_data_recieve[2] top.cpu_tb.dut.dp_data_recieve[1] top.cpu_tb.dut.dp_data_recieve[0]
+@28
+#{top.cpu_tb.dut.dp.gp_regs.write_select[2:0]} top.cpu_tb.dut.dp.gp_regs.write_select[2] top.cpu_tb.dut.dp.gp_regs.write_select[1] top.cpu_tb.dut.dp.gp_regs.write_select[0]
+@22
+#{top.cpu_tb.dut.dp.gp_regs.reg7.q[7:0]} top.cpu_tb.dut.dp.gp_regs.reg7.q[7] top.cpu_tb.dut.dp.gp_regs.reg7.q[6] top.cpu_tb.dut.dp.gp_regs.reg7.q[5] top.cpu_tb.dut.dp.gp_regs.reg7.q[4] top.cpu_tb.dut.dp.gp_regs.reg7.q[3] top.cpu_tb.dut.dp.gp_regs.reg7.q[2] top.cpu_tb.dut.dp.gp_regs.reg7.q[1] top.cpu_tb.dut.dp.gp_regs.reg7.q[0]
+#{top.cpu_tb.dut.dp.gp_regs.reg0.q[7:0]} top.cpu_tb.dut.dp.gp_regs.reg0.q[7] top.cpu_tb.dut.dp.gp_regs.reg0.q[6] top.cpu_tb.dut.dp.gp_regs.reg0.q[5] top.cpu_tb.dut.dp.gp_regs.reg0.q[4] top.cpu_tb.dut.dp.gp_regs.reg0.q[3] top.cpu_tb.dut.dp.gp_regs.reg0.q[2] top.cpu_tb.dut.dp.gp_regs.reg0.q[1] top.cpu_tb.dut.dp.gp_regs.reg0.q[0]
+#{top.cpu_tb.dut.dp.gp_regs.reg1.q[7:0]} top.cpu_tb.dut.dp.gp_regs.reg1.q[7] top.cpu_tb.dut.dp.gp_regs.reg1.q[6] top.cpu_tb.dut.dp.gp_regs.reg1.q[5] top.cpu_tb.dut.dp.gp_regs.reg1.q[4] top.cpu_tb.dut.dp.gp_regs.reg1.q[3] top.cpu_tb.dut.dp.gp_regs.reg1.q[2] top.cpu_tb.dut.dp.gp_regs.reg1.q[1] top.cpu_tb.dut.dp.gp_regs.reg1.q[0]
+#{top.cpu_tb.dut.op_b[7:0]} top.cpu_tb.dut.op_b[7] top.cpu_tb.dut.op_b[6] top.cpu_tb.dut.op_b[5] top.cpu_tb.dut.op_b[4] top.cpu_tb.dut.op_b[3] top.cpu_tb.dut.op_b[2] top.cpu_tb.dut.op_b[1] top.cpu_tb.dut.op_b[0]
+#{top.cpu_tb.dut.op_a[7:0]} top.cpu_tb.dut.op_a[7] top.cpu_tb.dut.op_a[6] top.cpu_tb.dut.op_a[5] top.cpu_tb.dut.op_a[4] top.cpu_tb.dut.op_a[3] top.cpu_tb.dut.op_a[2] top.cpu_tb.dut.op_a[1] top.cpu_tb.dut.op_a[0]
+#{top.cpu_tb.dut.op_b_ff[7:0]} top.cpu_tb.dut.op_b_ff[7] top.cpu_tb.dut.op_b_ff[6] top.cpu_tb.dut.op_b_ff[5] top.cpu_tb.dut.op_b_ff[4] top.cpu_tb.dut.op_b_ff[3] top.cpu_tb.dut.op_b_ff[2] top.cpu_tb.dut.op_b_ff[1] top.cpu_tb.dut.op_b_ff[0]
+#{top.cpu_tb.dut.op_a_ff[7:0]} top.cpu_tb.dut.op_a_ff[7] top.cpu_tb.dut.op_a_ff[6] top.cpu_tb.dut.op_a_ff[5] top.cpu_tb.dut.op_a_ff[4] top.cpu_tb.dut.op_a_ff[3] top.cpu_tb.dut.op_a_ff[2] top.cpu_tb.dut.op_a_ff[1] top.cpu_tb.dut.op_a_ff[0]
+[pattern_trace] 1
+[pattern_trace] 0

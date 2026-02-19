@@ -1,0 +1,22 @@
+v 4
+file . "tb/cpu_tb.vhd" "e43ff51b6ff67f05c287baf279a10bb6d71a88d3" "20260219015002.241":
+  entity cpu_tb at 1( 0) + 0 on 1563;
+  architecture behavioural of cpu_tb at 9( 112) + 0 on 1564;
+file . "vhdl/ram_module.vhd" "a6091c7f12f2ca5f4048985272009de584c7526b" "20260219015002.237":
+  entity ram_block at 1( 0) + 0 on 1561;
+  architecture behavioural of ram_block at 23( 553) + 0 on 1562;
+file . "vhdl/datapath.vhd" "a3447df1c11c4b76464e9dc012fb2ed7af2d930f" "20260219015002.237":
+  entity datapath at 1( 0) + 0 on 1559;
+  architecture behavioural of datapath at 54( 1226) + 0 on 1560;
+file . "vhdl/cpu_frame.vhd" "247dc1785c1d4ad10c3d6b9e7dbb256f063191de" "20260219015002.236":
+  entity cpu_frame at 1( 0) + 0 on 1557;
+  architecture behavioural of cpu_frame at 24( 320) + 0 on 1558;
+file . "vhdl/Dreg.vhd" "32cfb1f51c43d966fd40b297d263389c16539dab" "20260219015002.231":
+  entity dreg at 1( 0) + 0 on 1555;
+  architecture behavioural of dreg at 21( 407) + 0 on 1556;
+file . "vhdl/ALU_module.vhd" "3e0794c555fcd0d8130bc5ae95a20de34d63afce" "20260219015002.227":
+  entity alu at 1( 0) + 0 on 1553;
+  architecture behaviour of alu at 25( 462) + 0 on 1554;
+file . "vhdl/8x_Dreg.vhd" "621dea49b1ee93d427b214ac8c5b3f2af8170801" "20260219015002.224":
+  entity dregx8 at 1( 0) + 0 on 1551;
+  architecture structural of dregx8 at 22( 722) + 0 on 1552;
