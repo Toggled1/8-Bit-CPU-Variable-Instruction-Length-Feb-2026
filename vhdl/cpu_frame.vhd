@@ -255,7 +255,6 @@ begin
     next_state <= state;
 
 
-    --SUPER IMPORTANT THESE DONT HAPPEN AT THE START OF THE STATE, THEY HAPPEN AT THE NEXT CLOCK EDGE
     RAM_enable <= '0';
     RAM_w_enable <= '0';
     DP_ir_we <= '0';
@@ -329,7 +328,7 @@ begin
         
         when FETCH1_BUF =>
 
-            RAM_enable <= '1'; --mantain
+            RAM_enable <= '1'; --maintain
             DP_ir1_we <= '1';
             DP_pc_we <= '1';
 

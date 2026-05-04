@@ -29,16 +29,15 @@ architecture behavioural of ram_block is
 
         --example program
 
-        0 => x"01", -- CLEAR R1  (now deterministic)
-        1 => x"1F", --load R7 with value in Mem 64 (imm = 1)
-        2 => x"40", --mem address (0x09 stored there)
-        3 => x"B1", --R1 <- R1 + R7 (0 + 9 = 9) (imm = 0)
-        4 => x"E0", --reg 7
-        5 => x"29", --store R1 (imm = 1)
-        6 => x"10", -- store to destination (16)10
+        0 => x"01", -- CLEAR R1                               (SINGLE)
+        1 => x"1F", --load R7 with value in Mem 64 (imm = 1)  (DOUBLE)
+        2 => x"40", --mem address (0x09 stored there)         
+        3 => x"B1", --R1 <- R1 + R7 (0 + 9 = 9) (imm = 0)     (DOUBLE)
+        4 => x"E0", --reg 7                                   
+        5 => x"29", --store R1 (imm = 1)                      (DOUBLE)
+        6 => x"10", -- store to destination (16)10             
 
-                --at mem (16)10 there should be a value of 9
-
+                --POST EX: at mem (16)10 there should be a value of 9
         64 => x"09",
 
 
