@@ -1,0 +1,26 @@
+# GHDL build artifacts
+*.o
+*.cf
+*.lst
+*.ghw
+*.fst
+*.vcd
+
+# GTKWave
+*.gtkw
+
+# Simulation outputs
+waves.*
+work-obj*
+
+# Executables
+*.exe
+*.out
+
+# Temp/log files
+*.log
+*.tmp
+
+# OS junk
+.DS_Store
+Thumbs.db
