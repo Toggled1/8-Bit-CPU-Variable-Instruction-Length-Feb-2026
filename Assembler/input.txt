@@ -1,0 +1,27 @@
+##this is just an example program multiplies two numbers and it accumulates the repeated sum in R2
+##then it stores the answer in Mem[0x02] which should read 0x23 = DEC 35
+##the output for this program is shown in the "images" folder
+
+
+.data
+num1 0x07          # Multiplicand: First number to multiply [7]
+num2 0x05          # Multiplier: Second number to multiply [5]
+prod 0x00          # Variable to store the final product
+
+.text
+######## Initialization
+CLEAR R2           # R2 will hold our running product, initialize to 0
+LOAD R0, num1      # Load the multiplicand into R0
+LOAD R1, num2      # Load the multiplier into R1
+
+######## Multiplication Loop
+multiply_loop:
+DEC R1             # Decrement the multiplier (count--)
+BN end_loop        # If the result is negative (was 0 before DEC), exit loop
+ADD R2, R0         # Add the multiplicand (R0) to our running product (R2)
+BRANCH multiply_loop # Unconditional jump back up to repeat the loop
+
+######## Program End
+end_loop:
+STORE R2, prod     # Store the final calculated product back into memory
+NOP                # Exit

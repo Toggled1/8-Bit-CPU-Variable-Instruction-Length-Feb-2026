@@ -71,7 +71,7 @@ begin
     wait for 25 ns;   -- guarantees at least two rising edges at 5ns and 15ns
 
     reset <= '0';     -- release reset, CPU starts running
-    wait for 10000 ns;
+    wait for 140000 ns;
 
     assert false report "Simulation finished" severity failure;
   end process;
