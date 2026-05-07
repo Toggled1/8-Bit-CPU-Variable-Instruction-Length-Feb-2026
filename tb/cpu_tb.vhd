@@ -67,11 +67,13 @@ begin
 
     process
   begin
-    reset <= '1';
-    wait for 25 ns;   -- guarantees at least two rising edges at 5ns and 15ns
+    reset <= '1';   --NOTE: Verification was done with waveform comparison with programs hardcoded in preloaded RAM
+                    --UPDATE: Toolchain preloads the RAM now for execution
 
-    reset <= '0';     -- release reset, CPU starts running
-    wait for 140000 ns;
+    wait for 25 ns;   --guarantees at least two rising edges at 5ns and 15ns
+
+    reset <= '0';     --release reset, CPU starts running
+    wait for 140000 ns; --this should be long enough!
 
     assert false report "Simulation finished" severity failure;
   end process;

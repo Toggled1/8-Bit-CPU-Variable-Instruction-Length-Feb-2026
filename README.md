@@ -17,6 +17,10 @@ What it supports:
 
 ## Architecture Overview
 
+**Take a look!** This schematic shows the top-level system interconnect for the cpu! (some details are omited here for simplicity)
+
+![top level system](images/8-Bit-CPU-Top-Level-System-Interconnect.png)
+
 ### Core Design
 
 - 8-bit datapath CPU
@@ -56,9 +60,9 @@ Key behaviour:
 
 The CPU runs on a multi-stage FSM that accounts for synchronous RAM latency. It utilizes Look-Ahead Decoding. Compared to earlier revisions to this FSM, the need for dedicated decode cycles has been eliminated by making opcodes and register selections based directly from the RAM wires during buffer states.
 
-**Take a look!** Below, I spent a LOT of time making this schematic of the finite state machine ;)
+**Take a look!** This schematic shows control logic in a finite state machine ;)
 
-![instruction example](images/FSM_state_transitions.png)
+![control fsm](images/FSM_state_transitions.png)
 
 ### Single-byte instruction cycle:
 FETCH0 → FETCH0_BUF → EXECUTE  
@@ -147,7 +151,7 @@ NOTE: imm is applicable to 2-byte (double-length) instructions
 | 1110   | DEC    | 1 byte  | `R[A] ← R[A] - 1` |
 | 1111   | NOP    | 1 byte  | `no operation` |
 
-![instruction example](images/Storing.png)
+
 
 ------------------------------------
 To run
@@ -273,6 +277,6 @@ Result:<br>
 
 ---
 
-## Waveform
+## Waveform for Multiplication Program
 
-<img src="images/input_example_program_waveform.png" width="700">
+<img src="images/multiplication_program_waveform.png" width="700">
