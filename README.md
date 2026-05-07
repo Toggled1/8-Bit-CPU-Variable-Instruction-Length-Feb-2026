@@ -56,6 +56,10 @@ Key behaviour:
 
 The CPU runs on a multi-stage FSM that accounts for synchronous RAM latency. It utilizes Look-Ahead Decoding. Compared to earlier revisions to this FSM, the need for dedicated decode cycles has been eliminated by making opcodes and register selections based directly from the RAM wires during buffer states.
 
+**Take a look!** Below, I spent a LOT of time making this schematic of the finite state machine ;)
+
+![instruction example](images/FSM_state_transitions.png)
+
 ### Single-byte instruction cycle:
 FETCH0 → FETCH0_BUF → EXECUTE  
 
