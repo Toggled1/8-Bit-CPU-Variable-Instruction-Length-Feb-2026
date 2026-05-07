@@ -10,7 +10,7 @@ What it supports:
 - 8-bit core with a 16-bit variable-length instruction format
 - Synchronous RAM (read/write, FPGA-style behavior)
 - Register-based datapath with ALU + flag logic
-- Multi-cycle FSM (fetch/decode/execute with buffering for RAM timing)
+- Multi-cycle FSM (fetch/decode/execute)
 - Custom Python assembler that generates machine code
 
 ---
@@ -52,24 +52,22 @@ Key behaviour:
 
 ---
 
-## Control Unit (CPU FSM)
+## Control Unit (CPU FSM) - "CPU Frame"
 
-The CPU runs on a multi-stage FSM with extra buffer states because of synchronous RAM latency.
+The CPU runs on a multi-stage FSM that accounts for synchronous RAM latency. It utilizes Look-Ahead Decoding. Compared to earlier revisions to this FSM, the need for dedicated decode cycles has been eliminated by making opcodes and register selections based directly from the RAM wires during buffer states.
 
 ### Single-byte instruction cycle:
-FETCH0 → FETCH0_BUF → DECODE0 → DECODE0_BUF → LOADOPS → EXECUTE  
-![single length diagram](images/FSM_single.png)
+FETCH0 → FETCH0_BUF → EXECUTE  
 
 ### Double-byte instruction cycle:
-FETCH0 → FETCH0_BUF → DECODE0 → DECODE0_BUF → FETCH1 → FETCH1_BUF → DECODE1 → DECODE1_BUF → LOADOPS → EXECUTE  
-![double length diagram](images/FSM_double.png)
+FETCH0 → FETCH0_BUF → FETCH1 → FETCH1_BUF → [LOADOPS] → EXECUTE  
 
-**Note:** this FSM is still a bit of a work in progress and will likely get cleaned up / optimized later.
+**Note:** This optimized FSM achieves a variable execution rate of 3 to 6 cycles. The Buffer states perform allow the synchronous RAM output to stabilize while also decoding the incoming instruction bits!
 
 The control unit (CPU frame) handles:
-- Instruction sequencing
-- Memory timing / sync handling
-- Overall execution flow control
+- **Instruction Sequencing:** Routes the FSM based on instruction length (8-bit vs 16-bit).
+- **Memory Timing Handling:** Manages the `LOADOPS` and `BUF` states such that the synchronous RAM bus is stable before latching data.
+- **Execution Flow Control:** Controls PC increments and write-back signals for the datapath and status registers.
 
 ---
 
