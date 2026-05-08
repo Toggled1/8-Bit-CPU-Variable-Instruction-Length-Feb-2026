@@ -17,7 +17,8 @@ entity cpu_frame is
 
         CLK : in std_logic;
         reset : in std_logic;
-        debug_RAM_contents_full: out ram_type
+        debug_RAM_contents_full: out ram_type;
+        pc_debug : out std_logic_vector(7 downto 0)
         
     );
 
@@ -114,7 +115,6 @@ component ram_block is
 
 
 
-
     --signal declarations are below
 
     signal ALU_op     : std_logic_vector(3 downto 0);
@@ -178,6 +178,7 @@ component ram_block is
 begin
 
     debug_RAM_contents_full <= debug_RAM_contents;
+    pc_debug <= CPU_pc_value;
     
     ALU_cpu : entity work.ALU
 

@@ -153,16 +153,6 @@ NOTE: imm is applicable to 2-byte (double-length) instructions
 
 
 
-------------------------------------
-To run
-------------------------------------
-```bash
-ghdl -a --std=08 vhdl/*.vhd tb/*.vhd
-ghdl -e --std=08 cpu_tb
-ghdl -r --std=08 cpu_tb --fst=waves.fst --stop-time=150us
-gtkwave waves.fst default.gtkw
-```
-
 
 ## Toolchain Overview
 
@@ -279,4 +269,31 @@ Result:<br>
 
 ## Waveform for Multiplication Program
 
-<img src="images/multiplication_program_waveform.png" width="700">
+<img src="images/multiplication_program_waveform.png">
+
+
+------------------------------------
+To run
+------------------------------------
+```bash
+rm work-obj08.cf 
+
+
+ghdl -a --std=08 vhdl/ram_pkg.vhd
+
+ghdl -a --std=08 vhdl/Dreg.vhd
+ghdl -a --std=08 vhdl/8x_Dreg.vhd
+
+ghdl -a --std=08 vhdl/ALU_module.vhd
+ghdl -a --std=08 vhdl/ram_module.vhd
+
+ghdl -a --std=08 vhdl/datapath.vhd
+ghdl -a --std=08 vhdl/cpu_frame.vhd
+
+ghdl -a --std=08 tb/cpu_tb.vhd
+
+
+ghdl -r --std=08 cpu_tb --fst=waves.fst --stop-time=150us
+gtkwave waves.fst default.gtkw
+
+```
