@@ -182,6 +182,21 @@ It translates assembly code into machine code and generates a memory initializat
 - Labels are resolved to instruction addresses during assembly<br>
 - Enables branching with <code>BRANCH</code>, <code>BN</code>, etc.<br><br>
 
+
+
+---
+
+## Verification & Testing Framework
+
+To ensure the CPU executes programs correctly and also to troubleshoot MANY MANY problems, I used a hybrid verification approach using both waveform analysis in GTK Wave and automated memory checking.
+
+- **Waveform Analysis:** Using GHDL and GTKWave, the simulated waveforms can be visually debugged during execution.
+
+- **Automated RAM Dumping:** I coded a testbench (`tb/cpu_tb.vhd`) to dump the final contents of the synchronous RAM to a text file at the end of the simulation.
+
+- **Python RAM Verification Script:** I designed a script (`verification_scripts/ram_dump_verify.py`) to parse this output and cross-references it against the expected values read from another file. It automatically asserts whether the program executed successfully. If there is a mismatch in RAM content, it asserts the specific address and values that were incorrect.
+
+
 ---
 
 ## Example Program (Repeated Addition Multiplication)
@@ -275,6 +290,8 @@ Result:<br>
 ------------------------------------
 To run
 ------------------------------------
+
+After running the assembler (Assembler/assembler_complete.py), run the following commands to run simulation:
 ```bash
 rm work-obj08.cf 
 
@@ -297,3 +314,6 @@ ghdl -r --std=08 cpu_tb --fst=waves.fst --stop-time=150us
 gtkwave waves.fst default.gtkw
 
 ```
+**Note:** Memory contents are dumped from the testbench under the tb folder.
+Use the Memory Verification script (verification_scripts/ram_dump_verify.py) to cross compare the
+dumped RAM contents with the expected values
