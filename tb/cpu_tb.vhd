@@ -1,6 +1,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.ram_pkg.all;
+use std.textio.all;
+use ieee.std_logic_textio.all;
 
 entity CPU_TB is
     
@@ -26,7 +29,10 @@ component cpu_frame is
         --General CPU
 
         CLK : in std_logic;
-        reset : in std_logic
+        reset : in std_logic;
+        debug_RAM_contents_full: out ram_type
+
+
         
     );
 
@@ -34,24 +40,30 @@ component cpu_frame is
 
     signal CLK : std_logic := '0';
     signal reset : std_logic := '1';
+    signal debug_RAM_contents : ram_type;
 
 
 begin
 
-    dut : cpu_frame
+
+
+    dut : entity work.cpu_frame
 
     port map(
         CLK => CLK,
 
-        reset => reset
+        reset => reset,
 
-
+        debug_RAM_contents_full => debug_RAM_contents
     );
+
+
 
 
     stim : process
 
     begin
+
 
         
 

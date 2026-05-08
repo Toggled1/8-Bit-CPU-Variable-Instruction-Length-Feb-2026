@@ -1,6 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.ram_pkg.all;
 
 entity cpu_frame is
 
@@ -15,7 +16,8 @@ entity cpu_frame is
         --General CPU ports
 
         CLK : in std_logic;
-        reset : in std_logic
+        reset : in std_logic;
+        debug_RAM_contents_full: out ram_type
         
     );
 
@@ -101,9 +103,16 @@ component ram_block is
         w_enable : in std_logic;
         address_bus : in std_logic_vector(address_bits-1 downto 0); --the address we are indexing
         data_in: in std_logic_vector(ram_word_width-1 downto 0);
-        data_out: out std_logic_vector(ram_word_width-1 downto 0)
+        data_out: out std_logic_vector(ram_word_width-1 downto 0);
+        debug_RAM_contents: out ram_type
     );
     end component;
+
+
+    --debug
+    signal debug_RAM_contents : ram_type;
+
+
 
 
     --signal declarations are below
@@ -168,8 +177,9 @@ component ram_block is
 
 begin
 
-
-    ALU_cpu : ALU
+    debug_RAM_contents_full <= debug_RAM_contents;
+    
+    ALU_cpu : entity work.ALU
 
      port map(
         op_A => op_A_FF,
@@ -183,12 +193,14 @@ begin
     );
 
 
-    ram : ram_block
+    ram : entity work.ram_block
     generic map (
         address_bits => ADDR_W,
         ram_word_width => DATA_W
 
     )
+
+    
 
     port map(
 
@@ -197,12 +209,13 @@ begin
         w_enable => RAM_w_enable,
         address_bus => CPU_address_bus,
         data_in => RAM_data_in,
-        data_out => RAM_data_recieve
+        data_out => RAM_data_recieve,
+        debug_RAM_contents => debug_RAM_contents
 
     );
 
 
-        DP : datapath
+        DP : entity work.datapath
 
          generic map(
             ADDR_W => ADDR_W,

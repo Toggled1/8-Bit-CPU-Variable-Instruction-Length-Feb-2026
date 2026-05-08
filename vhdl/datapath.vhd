@@ -137,7 +137,7 @@ begin
 
 
 --program counter
-PC : Dreg
+PC : entity work.Dreg
 
     generic map (
 
@@ -157,7 +157,7 @@ PC : Dreg
 
 --instruction reg for current instruction byte0
 
-IR : Dreg
+IR : entity work.Dreg
 
 generic map (
 
@@ -173,7 +173,7 @@ port map (
 );
 
 --instruction reg for current instruction byte1 (used for double length instructions) 
-IR1 : Dreg
+IR1 : entity work.Dreg
 
 generic map (
 
@@ -189,7 +189,7 @@ port map (
 );
 
 --status register where flags are stored in sequence (Z & C & N & V & "0000")
-SR : Dreg
+SR : entity work.Dreg
 
 generic map (
 
@@ -208,7 +208,7 @@ port map (
 
 
 --8 general purpose registers... selected by reg_write_sel and reg_read_sel
-gp_regs : Dregx8
+gp_regs : entity work.Dregx8
 
     port map(
         din          => gp_reg_din,

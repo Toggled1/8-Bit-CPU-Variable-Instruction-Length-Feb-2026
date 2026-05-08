@@ -68,7 +68,7 @@ begin
 
 
     --mapping registers!
-    reg0: Dreg 
+    reg0: entity work.Dreg 
     
         port map(
             D => din, 
@@ -79,7 +79,7 @@ begin
         
             );
 
-    reg1: Dreg 
+    reg1: entity work.Dreg 
         
         port map(
             D => din, 
@@ -89,7 +89,7 @@ begin
             CLK => CLK
             );
 
-    reg2: Dreg
+    reg2: entity work.Dreg
 
         port map(
             D => din, 
@@ -99,7 +99,7 @@ begin
             CLK => CLK
             );
             
-    reg3: Dreg 
+    reg3: entity work.Dreg 
 
         port map(
             D => din, 
@@ -108,7 +108,7 @@ begin
             reset => reset, 
             CLK => CLK);
 
-    reg4: Dreg 
+    reg4: entity work.Dreg 
 
         port map(
             D => din, 
@@ -120,7 +120,7 @@ begin
             CLK => CLK
             );
 
-    reg5: Dreg 
+    reg5: entity work.Dreg 
 
         port map(
             D => din, 
@@ -130,7 +130,7 @@ begin
             CLK => CLK
             );
 
-    reg6: Dreg 
+    reg6: entity work.Dreg 
 
         port map(D => din, 
             Q => Data6, 
@@ -139,7 +139,7 @@ begin
             CLK => CLK
             );
 
-    reg7: Dreg 
+    reg7: entity work.Dreg 
 
         port map(D => din, 
             Q => Data7, 
