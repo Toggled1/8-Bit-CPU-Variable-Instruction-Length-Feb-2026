@@ -291,29 +291,13 @@ Result:<br>
 To run
 ------------------------------------
 
-After running the assembler (Assembler/assembler_complete.py), run the following commands to run simulation:
-```bash
-rm work-obj08.cf 
+To run the full CPU simulation and verification pipeline, follow these steps in an Ubuntu terminal:
 
+ **Bash commands:**
+   ```bash
+   chmod +x run_cpu_simulation.sh
 
-ghdl -a --std=08 vhdl/ram_pkg.vhd
+   ./run_cpu_simulation.sh
+   ```
 
-ghdl -a --std=08 vhdl/Dreg.vhd
-ghdl -a --std=08 vhdl/8x_Dreg.vhd
-
-ghdl -a --std=08 vhdl/ALU_module.vhd
-ghdl -a --std=08 vhdl/ram_module.vhd
-
-ghdl -a --std=08 vhdl/datapath.vhd
-ghdl -a --std=08 vhdl/cpu_frame.vhd
-
-ghdl -a --std=08 tb/cpu_tb.vhd
-
-
-ghdl -r --std=08 cpu_tb --fst=waves.fst --stop-time=150us
-gtkwave waves.fst default.gtkw
-
-```
-**Note:** Memory contents are dumped from the testbench under the tb folder.
-Use the Memory Verification script (verification_scripts/ram_dump_verify.py) to cross compare the
-dumped RAM contents with the expected values
+This runs the Python assembler, then the VHDL simulation, opens GTK wave, then runs the verification Python program

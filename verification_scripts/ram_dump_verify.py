@@ -46,11 +46,11 @@ for line in raw_lines_dumped:
 for test_index in expected_mapping:
 
     if expected_mapping[test_index] != dumped_mapping[test_index]:
-        print(f"Location mem[{hex(int(test_index))}] contains incorrect value: {dumped_mapping[test_index]}.\nShould contain value {expected_mapping[test_index]}")
+        print(f"\n--------Location mem[{hex(int(test_index))}] contains incorrect value: {dumped_mapping[test_index]}.\nShould contain value {expected_mapping[test_index]}\n")
         wrong_lines = wrong_lines + 1
 
 if wrong_lines == 0:
-    print("all the memory locations returned correct values")
+    print("\n--------all the memory locations returned correct values--------\n")
 
 expected_file.close()
 dumped_file.close()
