@@ -92,7 +92,7 @@ begin
 
     reset <= '0';     --release reset, CPU starts running
 
-    wait until pc_debug = x"FF"; --because the pc will just loop back and break
+    wait for 5 us; --until times out!
             
 
     --Writing the Ram contents to a dump file

@@ -174,6 +174,8 @@ It translates assembly code into machine code and generates a memory initializat
 - <code>.bss</code>: reserved uninitialized memory space<br>
 - <code>.text</code>: executable instructions<br><br>
 
+**Note:** writes in order: .text → .data → .bss
+
 <b>Comments</b><br>
 - Anything after <code>#</code> is ignored by the assembler<br><br>
 
@@ -218,13 +220,14 @@ LOAD R1, num2      # Load the multiplier into R1
 multiply_loop:
 DEC R1             # Decrement the multiplier (count--)
 BN end_loop        # If the result is negative (was 0 before DEC), exit loop
-ADD R2, R0         # Add the multiplicand (R0) to our running product (R2)
+ADD R2, R0         # Add the multiplicand (R0) to the running product (R2)
 BRANCH multiply_loop # Unconditional jump back up to repeat the loop
 
 ######## Program End
 end_loop:
 STORE R2, prod     # Store the final calculated product back into memory
-NOP                # Exit
+
+END: BRANCH END    #No hault, so just loop!
 </pre>
 
 ---
@@ -232,24 +235,26 @@ NOP                # Exit
 ## Assembler Output (Machine Code)
 
 <pre>
-07
-05
-00
 02
 18
-00
+10
 19
-01
+11
 E1
 58
-0F
+0C
 B2
 00
 68
-08
+05
 2A
-02
-F0
+12
+68
+0E
+07
+05
+00
+
 </pre>
 
 ---
@@ -276,7 +281,7 @@ The program computes:
 </pre>
 
 Result:<br>
-- Stored in <code>Memory[0x02]</code><br>
+- Stored in <code>Memory[0x12]</code><br>
 - Value = 35 (decimal)<br>
 - Accumulated in <code>R2</code><br><br>
 

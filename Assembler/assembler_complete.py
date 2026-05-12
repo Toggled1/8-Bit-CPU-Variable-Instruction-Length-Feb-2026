@@ -10,6 +10,8 @@ import json
 #For now, it is case sensitive ;(
 #Recently added support for labels
 
+#NOTE: writes in order: .text -> .data -> .bss
+
 #
 #
 #
@@ -133,35 +135,6 @@ symbol_table = {} #creating the symbol table for all the mapping
 
 
 
-#############PARSING of .data (INITIALIZED)
-
-
-
-
-for cur_ins in data_lines:
-    var_name = cur_ins[0]
-    var_value = int(cur_ins[1], 0)
-
-    symbol_table[var_name] = cur_address
-    output_file.write(f"{var_value:02X}\n")
-    cur_address += 1
-
-
-
-
-#############PARSING of .bss (Block Started by Symbol) (UNINITIALIZED)
-
-for cur_ins in bss_lines:
-    var_name = cur_ins[0]
-    space_reserve = int(cur_ins[1], 0)
-
-    symbol_table[var_name] = cur_address #continous from data's address locations
-
-    for i in range(space_reserve):
-        output_file.write("00\n")
-        cur_address +=1
-
-
 
 ############LABEL MAPPING
 for cur_ins in text_lines:
@@ -195,7 +168,33 @@ for cur_ins in text_lines:
     
 
 
-#############PARSING of .text
+#############PARSING (NO WRITING) of .data (INITIALIZED)
+
+
+
+
+for cur_ins in data_lines:
+    var_name = cur_ins[0]
+
+    symbol_table[var_name] = cur_address
+    cur_address += 1
+
+
+
+
+#############PARSING (NO WRITING) of .bss (Block Started by Symbol) (UNINITIALIZED)
+
+for cur_ins in bss_lines:
+    var_name = cur_ins[0]
+    space_reserve = int(cur_ins[1], 0)
+
+    symbol_table[var_name] = cur_address #continous from data's address locations
+
+    ##change: now it doesn't write until later, after .text is written
+    cur_address += space_reserve
+
+
+#############PARSING & WRITING of .text
 
 
 for cur_ins in text_lines:
@@ -300,6 +299,25 @@ for cur_ins in text_lines:
 
         output_file.write(f"{byte1:02X}\n")
     
+
+
+
+
+########WRITING of .data
+
+for cur_ins in data_lines:
+    var_value = int(cur_ins[1], 0)
+
+    output_file.write(f"{var_value:02X}\n")
+
+
+########WRITING of .bss
+
+for cur_ins in bss_lines:
+    space_reserve = int(cur_ins[1], 0)
+
+    for i in range(space_reserve):
+        output_file.write("00\n")
 
 output_file.close()
 

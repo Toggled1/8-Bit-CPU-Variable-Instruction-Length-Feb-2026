@@ -24,4 +24,5 @@ BRANCH multiply_loop # Unconditional jump back up to repeat the loop
 ######## Program End
 end_loop:
 STORE R2, prod     # Store the final calculated product back into memory
-NOP                # Exit
+
+END: BRANCH END    #No hault, so just loop!
