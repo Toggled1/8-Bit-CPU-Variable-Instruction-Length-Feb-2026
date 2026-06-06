@@ -53,6 +53,7 @@ begin
   begin
 
     result_u := (others => '0');
+    extended_sum := (others => '0');
     zero_flag := '0';
     carry_flag := '0';
     negative_flag := '0';
@@ -108,7 +109,7 @@ begin
         result_u     := extended_sum(7 downto 0);
 
         --C flag 
-        carry_flag   := not extended_sum(8);
+        carry_flag   := extended_sum(8);
 
         result_signed := signed(std_logic_vector(result_u));
 
@@ -136,7 +137,7 @@ begin
       when "1110" =>
         extended_sum := unsigned('0' & op_A) - 1;
         result_u     := extended_sum(7 downto 0);
-        carry_flag   := not extended_sum(8); --C flag
+        carry_flag   := extended_sum(8); --C flag
 
         result_signed := signed(std_logic_vector(result_u));
 
@@ -150,6 +151,8 @@ begin
         result_u      := (others => '0'); --Just placholder 0, ALU is not router here anyway for reg wb
         carry_flag    := '0';
         overflow_flag := '0';
+        zero_flag := '0';
+        negative_flag := '0';
         
     end case;
 

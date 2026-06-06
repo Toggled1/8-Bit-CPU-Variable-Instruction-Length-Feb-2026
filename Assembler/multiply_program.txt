@@ -1,5 +1,5 @@
 ##this is just an example program multiplies two numbers and it accumulates the repeated sum in R2
-##then it stores the answer in Mem[0x02] which should read 0x23 = DEC 35
+##then it stores the answer in Mem[0x12] which should read 0x23 = DEC 35
 ##the output for this program is shown in the "images" folder
 
 
@@ -18,7 +18,7 @@ LOAD R1, num2      # Load the multiplier into R1
 multiply_loop:
 DEC R1             # Decrement the multiplier (count--)
 BN end_loop        # If the result is negative (was 0 before DEC), exit loop
-ADD R2, R0         # Add the multiplicand (R0) to our running product (R2)
+ADD R2, R0         # Add the multiplicand (R0) to the running product (R2)
 BRANCH multiply_loop # Unconditional jump back up to repeat the loop
 
 ######## Program End

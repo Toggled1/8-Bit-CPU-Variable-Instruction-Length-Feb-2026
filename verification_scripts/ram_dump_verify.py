@@ -12,14 +12,28 @@
 
 
 
+#
+#
+#
+#Change this file to the one being analyzed
+expected_file = open("verification_scripts/expected_multiply_program.txt","r")
+#
+#
+#
+
+
+
+
+dumped_file = open("tb/ram_dump.txt","r")
+
+
 raw_lines_expected = {} #just lists
 raw_lines_dumped = {}
 
 expected_mapping = {} #dictionaries in form [index (base 10)] = value
 dumped_mapping = {}
 
-expected_file = open("verification_scripts/expected_contents.txt","r")
-dumped_file = open("tb/ram_dump.txt","r")
+
 
 raw_lines_expected = expected_file.read().splitlines()
 raw_lines_dumped = dumped_file.read().splitlines()

@@ -17,6 +17,10 @@ import json
 #
 
 
+#Change this to the file that will be Assembled!!!! (Machine code goes into "output.txt")
+input_file = open("Assembler/multiply_program.txt","r")
+
+
 
 
 
@@ -87,7 +91,11 @@ cur_src = None
 byte0 = None
 byte1 = None
 
-input_file = open("Assembler/input.txt","r")
+
+
+
+
+
 
 #cleaning up the file and putting into a list
 code_list = input_file.readlines()

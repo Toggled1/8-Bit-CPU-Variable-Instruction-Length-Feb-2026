@@ -20,24 +20,7 @@ entity Dregx8 is
     end entity Dregx8;
 
 architecture structural of Dregx8 is
-
-    component Dreg is
-
-    generic (
-        cells : integer := 8
-    );
-    port(
-
-        D : in std_logic_vector(cells-1 downto 0);
-        Q : out std_logic_vector(cells-1 downto 0);
-        enable : in std_logic;
-        reset : in std_logic;
-        CLK : in std_logic
-        
-    );
-    end component;
-
-
+    
     signal reg_en : std_logic_vector(7 downto 0);
     signal Data0 : std_logic_vector (7 downto 0);
     signal Data1 : std_logic_vector (7 downto 0);

@@ -27,89 +27,6 @@ end entity cpu_frame;
 architecture behavioural of cpu_frame is
 
 
-
-component ALU is
-  port(
-    op_A       : in  std_logic_vector(7 downto 0);
-    op_B       : in  std_logic_vector(7 downto 0);
-    ALU_op     : in  std_logic_vector(3 downto 0);
-
-    ALU_result : out std_logic_vector(7 downto 0);
-
-    Z : out std_logic;  -- Zero
-    C : out std_logic;  -- Carry
-    N : out std_logic;  -- Negative
-    V : out std_logic   -- Overflow
-  );
-
-end component;
-
-
-component datapath is
-
-    generic(
-
-        ADDR_W : integer := 8;
-        Data_W : integer := 8
-    );
-
-    port(
-        mem_din : in std_logic_vector(DATA_W-1 downto 0);
-        mem_dout : out std_logic_vector(DATA_W-1 downto 0);
-        CLK : in std_logic;
-        reset : in std_logic;
-
-
-        reg_we          : in std_logic;
-        reg_read_sel   : in std_logic_vector(2 downto 0);
-        reg_write_sel   : in std_logic_vector(2 downto 0);
-
-
-        pc_we       : in std_logic;
-        pc_src_sel : in std_logic;
-        pc_target : in std_logic_vector(7 downto 0);
-        pc_out : out std_logic_vector(7 downto 0);
-
-
-        ir_we       : in std_logic;
-        ir_out      : out std_logic_vector(7 downto 0);
-
-        ir1_we       : in std_logic;
-        ir1_out      : out std_logic_vector(7 downto 0);
-
-        alu_result : in std_logic_vector(7 downto 0);
-        imm8 : in std_logic_vector(7 downto 0); --not used
-        wb_sel : in std_logic_vector(1 downto 0);
-
-        sr_in : in std_logic_vector(7 downto 0);
-        sr_out : out std_logic_vector(7 downto 0);
-        sr_we : in std_logic
-        
-    );
-    end component;
-
-
-component ram_block is
-
-    generic(
-        address_bits : integer := ADDR_W;
-        ram_word_width : integer := DATA_W
-
-    );
-
-    port(
-
-        CLK : in std_logic;
-        enable : in std_logic;
-        w_enable : in std_logic;
-        address_bus : in std_logic_vector(address_bits-1 downto 0); --the address we are indexing
-        data_in: in std_logic_vector(ram_word_width-1 downto 0);
-        data_out: out std_logic_vector(ram_word_width-1 downto 0);
-        debug_RAM_contents: out ram_type
-    );
-    end component;
-
-
     --debug
     signal debug_RAM_contents : ram_type;
 
@@ -250,14 +167,16 @@ begin
         sr_in <= Z & C & N & V & "0000"; --status register flag assignments
 
 
-    --async reset
-    process(CLK, reset)
+    process(CLK)
 
     begin
-        if reset = '1' then
-            state <= FETCH0;
-        elsif rising_edge(CLK) then
-            state <= next_state;
+        
+        if rising_edge(CLK) then
+            if reset = '1' then
+                state <= FETCH0;
+            else
+                state <= next_state;
+            end if;
         end if;
     end process;
 

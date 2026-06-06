@@ -53,48 +53,6 @@ entity datapath is
 
 architecture behavioural of datapath is
 
-
---gp register file template
-
-component Dregx8 is
-
-    generic (
-        cells : integer := 8
-    );
-    port(
-        din          :  in std_logic_vector (7 downto 0); 
-        dout         :  out std_logic_vector (7 downto 0);
-        CLK          :  in std_logic;                      
-        reset        :  in std_logic;                      
-        write_enable :  in std_logic;                      -- enable writing to a register (when write_enable = 1)
-        write_select :  in std_logic_vector (2 downto 0);  -- select register to write to
-        read_select  :  in std_logic_vector (2 downto 0)   -- select register to read from
-        
-    );
-    end component;
---special register template
-
-component Dreg is
-
-    generic (
-        cells : integer := 16
-    );
-    port(
-
-        D : in std_logic_vector(cells-1 downto 0);
-        Q : out std_logic_vector(cells-1 downto 0);
-        enable : in std_logic;
-        reset : in std_logic;
-        CLK : in std_logic
-        
-    );
-    end component;
-
-
-
-
-
-
 --internal pc and ir/ir1 signals
 
 signal int_pc_out : std_logic_vector(DATA_W-1 downto 0);

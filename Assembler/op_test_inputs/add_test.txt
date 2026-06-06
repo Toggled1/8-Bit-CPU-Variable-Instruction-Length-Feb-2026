@@ -1,0 +1,25 @@
+##this program tests the add operation for both immediate and register modes
+
+.data
+num1 0x09          # Augend: First number add
+num2 0x08          # Addend: Second number to add
+sum_reg 0x00          # Variable to store the final sum for num1 + num2 (should evaluate to 0x11)
+sum_imm 0x00          # Variable to store the final sum for num2 + 18 (should evaluate to 0x1A)
+
+.text
+######## Initialization
+LOAD R0, num1      # Load the Augend into R0
+LOAD R1, num2      # Load the Addend into R1
+
+######## ADD R0 and R1 (should evaluate to 17 (0x11))
+ADD R0, R1 # sum goes into R0
+
+####### ADD R1 and 18 
+ADD R1, 18 #sum goes into R1 (should evaluate to 26(0x1A))
+
+######## Program End
+end_loop:
+STORE R0, sum_reg     # Store the final calculated sum back into memory
+STORE R1, sum_imm     # Store the final calculated sum back into memory
+
+END: BRANCH END    #No hault, so just loop!
