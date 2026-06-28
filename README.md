@@ -309,10 +309,10 @@ To run the full CPU simulation and verification pipeline, follow these steps in 
 
    ./run_cpu_simulation.sh
    ```
+This runs the Python assembler, then the VHDL simulation, opens GTK wave, then runs the verification Python program
 
 > **To run systemverilog port:**
   ```bash
   iverilog -g2012 -o cpu_tb.out sv/*.sv tb/*.sv && vvp cpu_tb.out
   ```
 
-This runs the Python assembler, then the VHDL simulation, opens GTK wave, then runs the verification Python program
