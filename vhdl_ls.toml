@@ -1,0 +1,9 @@
+[libraries]
+[libraries.defaultlib]
+files = [
+    "vhdl/**/*.vhd",
+    "tb/**/*.vhd"
+]
+
+[options]
+std = "08"
