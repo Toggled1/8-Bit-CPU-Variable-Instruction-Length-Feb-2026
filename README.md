@@ -4,6 +4,8 @@
 
 This is a custom 8-bit CPU I built in VHDL, along with a full toolchain (Python assembler + RAM initialization for simulation).
 
+> **Note:** This project also includes a SystemVerilog port of the architecture, which utilizes **Icarus Verilog** for simulation.
+
 I was introduced to RTL design in one of my courses last fall, and I got really interested in it, so I decided to start my own small project!
 
 What it supports:
@@ -192,7 +194,10 @@ It translates assembly code into machine code and generates a memory initializat
 
 To ensure the CPU executes programs correctly and also to troubleshoot MANY MANY problems, I used a hybrid verification approach using both waveform analysis in GTK Wave and automated memory checking.
 
-- **Waveform Analysis:** Using GHDL and GTKWave, the simulated waveforms can be visually debugged during execution.
+- **Waveform Analysis:** Using **GHDL** and **GTKWave**, the simulated waveforms can be visually debugged during execution.
+
+> **Note:** The Systemverilog port uses **Icarus Verilog** for sim and **VaporView** to view waveform within VS code.
+
 
 - **Automated RAM Dumping:** I coded a testbench (`tb/cpu_tb.vhd`) to dump the final contents of the synchronous RAM to a text file at the end of the simulation.
 
@@ -304,5 +309,10 @@ To run the full CPU simulation and verification pipeline, follow these steps in 
 
    ./run_cpu_simulation.sh
    ```
+
+> **To run systemverilog port:**
+  ```bash
+  iverilog -g2012 -o cpu_tb.out sv/*.sv tb/*.sv && vvp cpu_tb.out
+  ```
 
 This runs the Python assembler, then the VHDL simulation, opens GTK wave, then runs the verification Python program
